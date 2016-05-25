@@ -8,6 +8,20 @@ const BrowserWindow = electron.BrowserWindow
 
 let mainwindow
 
+// Application tools
+
+let tools = {
+  // Get directories
+  "getDirectories" : {
+    "name" : "Get Directories",
+    "func" : function() {
+      return fs.readdirSync(src).filter(function(file) {
+        return fs.statSync(path.join(src, file)).isDirectory()
+      })
+    }
+  }
+}
+
 // Create windows
 
 function createWindow() {
@@ -17,14 +31,24 @@ function createWindow() {
     title: package.productName
   })
   mainwindow.loadURL('file://' + __dirname + '/index.html')
+  mainwindow.webContents.openDevTools()
+  finishLoading()
 }
 
-// Get directories
+// Finish window loading
 
-function getDirectories(src) {
-  return fs.readdirSync(src).filter(function(file) {
-    return fs.statSync(path.join(src, file)).isDirectory()
+function finishLoading() {
+  data = new Data()
+  mainwindow.rendererSideName = data
+  mainwindow.webContents.on('did-finish-load', function() {
+    mainwindow.webContents.executeJavaScript('initialize()')
   })
+}
+
+// Data object
+
+function Data() {
+  this.tools = tools
 }
 
 // App functions

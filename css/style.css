@@ -5,3 +5,45 @@
 body {
   background-color: #333;
 }
+
+/*
+**  Global page frame
+*/
+
+.global_frame {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+**  Main page toolbar
+*/
+
+#toolbar {
+  width: 20%;
+  height: 80%;
+}
+
+#toolbar ul {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/*
+**  Main content
+*/
+
+#content {
+  width: 75%;
+  height: 80%;
+  background-color: #222;
+  border-radius: 8px;
+}
