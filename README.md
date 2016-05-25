@@ -1,2 +1,2 @@
-# website-compiler-electron
-Repository for a website compiler
+# Website compiler
+Repository for a website compiler made with Electron
