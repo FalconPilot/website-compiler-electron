@@ -9,13 +9,14 @@ const options   = document.getElementById('options')
 function initialize() {
   keys = Object.keys(data.tools)
   nodes = options.childNodes
+  console.log(nodes.length)
   for (i = 0; i < nodes.length; i++) {
     if (nodes[i].nodeType != 3) {
-      buffer = nodes[i].textContent
+      buffer = nodes[i].id
       if (inArray(buffer, keys)) {
         nodes[i].innerHTML = data.tools[buffer].name
         nodes[i].addEventListener('click', function() {
-          alert("Coucou")
+          console.log(data.tools[this.id].func)
         })
       }
     }
@@ -25,8 +26,8 @@ function initialize() {
 // Check if element exist in array
 
 function inArray(elem, array) {
-  for (i = 0; i < array.length; i++) {
-    if (elem == array[i]) {
+  for (a = 0; a < array.length; a++) {
+    if (elem == array[a]) {
       return true
     }
   }
