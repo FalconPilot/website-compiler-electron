@@ -1,0 +1,6 @@
+{
+  "name" :          "website-compiler",
+  "productName" :   "Website Compiler",
+  "version" :       "0.1.0",
+  "main" :          "app.js"
+}
